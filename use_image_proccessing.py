@@ -1,6 +1,6 @@
 from time import sleep
 from util import *
-from imageProcessing import *
+import image_processing
 import SpeedController
 
 MAX_SPEED = 0.7
@@ -25,18 +25,15 @@ def speed_by_center(center):
 
 
 def loop():
-    pipeline = GripPipeline()
+    pipeline = image_processing.GripPipeline()
     cam = cv2.VideoCapture(PORT)
     while 1:
         img = cam.read()[1]
         pipeline.process(img)
         contours = pipeline.find_contours_output
-        cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
-        cv2.imwrite('image.png', img)
         center = find_position(contours)
-        print center
         speed_by_center(center)
-        sleep(10)
+        sleep(0.1)
 
 
 if __name__ == '__main__':
