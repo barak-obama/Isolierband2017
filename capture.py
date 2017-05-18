@@ -5,7 +5,8 @@ import time
 
 cam = cv2.VideoCapture(PORT)
 
-time.sleep(10)
+for i in range(0, 30):
+    cam.read()
 
 _, img = cam.read()
 
