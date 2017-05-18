@@ -1,7 +1,8 @@
 from time import sleep
+from util import *
 
-import isolirband
-from isolirband import *
+import imageProcessing
+from imageProcessing import *
 import SpeedController
 from threading import Thread
 
@@ -28,7 +29,7 @@ def speed_by_center(center):
 
 def loop():
     pipeline = GripPipeline()
-    cam = cv2.VideoCapture(isolirband.PORT)
+    cam = cv2.VideoCapture(PORT)
     while 1:
         img = cam.read()[1]
         pipeline.process(img)

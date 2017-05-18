@@ -3,9 +3,7 @@ import numpy as np
 import math
 
 from enum import Enum
-PORT = 0
-threshold = 15
-WIDTH = 640
+
 
 
 class GripPipeline:
@@ -106,24 +104,6 @@ class GripPipeline:
         method = cv2.CHAIN_APPROX_SIMPLE
         contours, hierarchy = cv2.findContours(img, mode=mode, method=method)
         return contours
-
-
-def is_down(contour):
-    global threshold
-    for value in contour[:, 1]:
-        if value < threshold:
-            return True
-    return False
-
-
-def find_position(contours):
-    global WIDTH
-    for contour in contours:
-        if is_down(contour):
-            M = cv2.moments(contour)
-            return int(M["m10"] / M["m00"]) / WIDTH - 0.5
-    return -0.5
-
 
 BlurType = Enum('BlurType', 'Box_Blur Gaussian_Blur Median_Filter Bilateral_Filter')
 
