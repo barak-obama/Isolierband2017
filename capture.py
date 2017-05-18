@@ -1,9 +1,15 @@
 import image_processing
 import cv2
 from util import PORT, find_position, HEIGHT, WIDTH
+import time
 
 cam = cv2.VideoCapture(PORT)
+
+time.sleep(2)
+
 _, img = cam.read()
+
+
 
 g = image_processing.GripPipeline()
 
