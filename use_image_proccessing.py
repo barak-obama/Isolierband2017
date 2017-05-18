@@ -31,7 +31,7 @@ def loop():
         img = cam.read()[1]
         pipeline.process(img)
         contours = pipeline.find_contours_output
-        cv2.drawContours(img, contours, (0, 255, 0), 3)
+        cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
         cv2.imwrite('image.png', img)
         center = find_position(contours)
         print center
