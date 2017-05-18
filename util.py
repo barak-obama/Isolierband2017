@@ -7,10 +7,10 @@ WIDTH = 640
 
 def is_down(contour):
     global threshold
-    print contour
-    for value in contour[:, 1]:
-        if value < threshold:
-            return True
+    for value in contour:
+        for i in value[:, 1]:
+            if i < threshold:
+                return True
     return False
 
 
