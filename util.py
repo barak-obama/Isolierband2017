@@ -1,12 +1,13 @@
 import cv2
 
-PORT = 1
+PORT = 0
 threshold = 15
 WIDTH = 640
 
 
 def is_down(contour):
     global threshold
+    print contour
     for value in contour[:, 1]:
         if value < threshold:
             return True
