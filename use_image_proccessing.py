@@ -2,7 +2,7 @@ from time import sleep
 
 import isolirband
 from isolirband import *
-from SpeedController import *
+import SpeedController
 from threading import Thread
 
 MAX_SPEED = 0.7
@@ -10,8 +10,8 @@ KP = 1.2
 
 
 def tank_drive(speed_left, speed_right):
-    set_left(speed_left)
-    set_right(-speed_right)
+    SpeedController.set_left(speed_left)
+    SpeedController.set_right(-speed_right)
 
 
 def speed_by_center(center):
@@ -40,8 +40,5 @@ def loop():
 
 
 if __name__ == '__main__':
-    t = Thread(target=loop())
-    t.start()
-    # for i in [-0.5 + i * 0.01 for i in range(int(round((0.5 - (-0.5)) / 0.01)))]:
-    #     print "%s\r" % i
-    #     speed_by_center(i)
+    SpeedController.start_refreshing(location='/dev/ttyACM0', sending_rate=0.01)
+    loop()
