@@ -1,8 +1,8 @@
 <edu.wpi.grip.core.Pipeline>
   <sources>
-    <edu.wpi.grip.core.sources.ImageFileSource>
-      <property name="path" value="/Users/obama/Desktop/image.jpg"/>
-    </edu.wpi.grip.core.sources.ImageFileSource>
+    <edu.wpi.grip.core.sources.CameraSource>
+      <property name="deviceNumber" value="1"/>
+    </edu.wpi.grip.core.sources.CameraSource>
   </sources>
   <steps>
     <edu.wpi.grip.core.Step name="HSV Threshold">
