@@ -1,10 +1,7 @@
 from time import sleep
 from util import *
-
-import imageProcessing
 from imageProcessing import *
 import SpeedController
-from threading import Thread
 
 MAX_SPEED = 0.7
 KP = 1.2
@@ -34,10 +31,12 @@ def loop():
         img = cam.read()[1]
         pipeline.process(img)
         contours = pipeline.find_contours_output
+        cv2.drawContours(img, contours, (0, 255, 0), 3)
+        cv2.imwrite('image.png', img)
         center = find_position(contours)
         print center
         speed_by_center(center)
-        sleep(0.01)
+        sleep(10)
 
 
 if __name__ == '__main__':

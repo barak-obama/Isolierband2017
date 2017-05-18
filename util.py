@@ -4,6 +4,7 @@ PORT = 1
 threshold = 15
 WIDTH = 640
 
+
 def is_down(contour):
     global threshold
     for value in contour[:, 1]:
