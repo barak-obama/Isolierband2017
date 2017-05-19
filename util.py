@@ -1,6 +1,6 @@
 import cv2
 
-PORT = 0
+PORT = 2
 threshold = 15
 WIDTH = 640.0
 HEIGHT = 480.0
