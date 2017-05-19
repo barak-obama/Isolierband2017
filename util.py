@@ -18,5 +18,5 @@ def find_position(contours):
             M = cv2.moments(contour)
             x = int(M["m10"] / M["m00"])
             y = int(M["m01"] / M["m00"])
-            return (x/WIDTH, y/HEIGHT), contour
+            return (x, y), contour
     return (-0.5, 0), None
