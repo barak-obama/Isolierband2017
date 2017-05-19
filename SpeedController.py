@@ -29,6 +29,7 @@ def send_in_background(sending_rate):
 
 def __send__(packet):
     send_queue.append(packet)
+    print packet
 
 
 def speed_to_signal(speed):
