@@ -16,21 +16,12 @@ def start_refreshing(location, sending_rate=1):
     if not serial_connection:
         serial_connection = serial.Serial(location, 9600)
         is_sending = True
-        sending_thread = thread.start_new_thread(send_in_background, (sending_rate,))
-
-
-def send_in_background(sending_rate):
-    while is_sending:
-        if len(send_queue):
-            packet = send_queue.pop(0)
-            serial_connection.write(packet)
-            serial_connection.flush()
-            print packet
-        time.sleep(sending_rate)
 
 
 def __send__(packet):
-    send_queue.append(packet)
+    serial_connection.write(packet)
+    serial_connection.flush()
+    print packet
 
 
 def speed_to_signal(speed):
