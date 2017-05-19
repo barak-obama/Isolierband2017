@@ -30,7 +30,7 @@ i = 0
 for contour in contours:
     contour_img = img.copy()
     cv2.drawContours(contour_img, [contour], -1, (0, 255, 0), 3)
-    cv2.imwrite('image_contour' + i + '.png', contour_img)
+    cv2.imwrite('image_contour' + str(i) + '.png', contour_img)
     i += 1
 
 cv2.imwrite('image_contours.png', contours_img)
