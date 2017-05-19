@@ -6,13 +6,9 @@ WIDTH = 640
 HEIGHT=480
 
 
-def is_down(contour):
-    global threshold
-    for value in contour:
-        real_value = value[0]
-        if real_value[1] < threshold:
-            return True
-    return False
+def is_down(cnt):
+    bottommost = tuple(cnt[cnt[:, :, 1].argmax()][0])
+    return bottommost[1] < threshold
 
 
 def find_position(contours):
