@@ -2,8 +2,8 @@ import cv2
 
 PORT = 0
 threshold = 15
-WIDTH = 640
-HEIGHT=480
+WIDTH = 640.0
+HEIGHT = 480.0
 
 
 def is_down(cnt):
@@ -12,7 +12,6 @@ def is_down(cnt):
 
 
 def find_position(contours):
-    global WIDTH
     for contour in contours:
         if is_down(contour):
             M = cv2.moments(contour)
