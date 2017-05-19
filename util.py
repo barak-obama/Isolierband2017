@@ -8,6 +8,7 @@ HEIGHT=480
 
 def is_down(cnt):
     bottommost = tuple(cnt[cnt[:, :, 1].argmax()][0])
+    print bottommost
     return bottommost[1] < threshold
 
 
