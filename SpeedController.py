@@ -24,12 +24,12 @@ def send_in_background(sending_rate):
         if len(send_queue):
             packet = send_queue.pop(0)
             serial_connection.write(packet)
+            print packet
         time.sleep(sending_rate)
 
 
 def __send__(packet):
     send_queue.append(packet)
-    print packet
 
 
 def speed_to_signal(speed):
