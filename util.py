@@ -11,8 +11,8 @@ def is_down(contour):
     for value in contour:
         for i in value[:, 1]:
             if i < threshold:
-                return True
-    return False
+                return True, value
+    return False, None
 
 
 def find_position(contours):
