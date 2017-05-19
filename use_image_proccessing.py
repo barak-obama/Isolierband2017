@@ -33,6 +33,7 @@ def loop():
         pipeline.process(img)
         contours = pipeline.find_contours_output
         center, _ = find_position(contours)
+        print center
         speed_by_center(center[0])
         sleep(0.1)
 
