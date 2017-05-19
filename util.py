@@ -10,8 +10,8 @@ def is_down(contour):
     global threshold
     print type(contour)
     for value in contour:
-        print value
-        for i in value[:, 1]:
+        print value[0]
+        for i in value[0][:, 1]:
 
             if i < threshold:
                 return True
