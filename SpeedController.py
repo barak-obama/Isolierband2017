@@ -23,7 +23,6 @@ def send_in_background(sending_rate):
     while is_sending:
         if len(send_queue):
             packet = send_queue.pop(0)
-            print packet
             serial_connection.write(packet)
         time.sleep(sending_rate)
 
