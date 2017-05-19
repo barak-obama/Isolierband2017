@@ -30,6 +30,7 @@ cv2.drawContours(contours_img, [contour], -1, (0, 255, 0), 3)
 cv2.imwrite('image_contours.png', contours_img)
 print contour
 center = (int((center[0] + 0.5) * WIDTH), int((center[1]+0.5) * HEIGHT))
+print center
 cv2.circle(center_img, center, 2, (0, 255, 0), thickness=1, lineType=8, shift=0)
 cv2.imwrite("image_center.png", center_img)
 
