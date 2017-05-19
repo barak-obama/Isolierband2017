@@ -11,8 +11,8 @@ def is_down(contour):
     for value in contour:
         for i in value[:, 1]:
             if i < threshold:
-                return True, value
-    return False, None
+                return True
+    return False
 
 
 def find_position(contours):
@@ -22,5 +22,5 @@ def find_position(contours):
             M = cv2.moments(contour)
             x = int(M["m10"] / M["m00"])
             y = int(M["m01"] / M["m00"])
-            return  (x/ WIDTH - 0.5,y/HEIGHT -0.5)
-    return (-0.5, 0.5)
+            return  (x/ WIDTH - 0.5,y/HEIGHT -0.5),contour
+    return (-0.5, 0.5),None
