@@ -8,10 +8,11 @@ HEIGHT=480
 
 def is_down(contour):
     global threshold
-    print contour
+    print type(contour)
     for value in contour:
         print value
         for i in value[:, 1]:
+
             if i < threshold:
                 return True
     return False
@@ -19,7 +20,6 @@ def is_down(contour):
 
 def find_position(contours):
     global WIDTH
-    print contours
     for contour in contours:
         if is_down(contour):
             M = cv2.moments(contour)
