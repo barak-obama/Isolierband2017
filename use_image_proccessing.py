@@ -37,5 +37,5 @@ def loop():
 
 
 if __name__ == '__main__':
-    SpeedController.start_refreshing(location='/dev/ttyACM0', sending_rate=0.01)
+    SpeedController.start_refreshing(location='/dev/ttyACM0', sending_rate=0.1)
     loop()
