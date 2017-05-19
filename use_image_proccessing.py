@@ -2,6 +2,7 @@ from time import sleep
 from util import *
 import image_processing
 import SpeedController
+from threading import Thread
 
 MAX_SPEED = 0.7
 KP = 1.2
@@ -27,7 +28,7 @@ def speed_by_center(center):
 def loop():
     pipeline = image_processing.GripPipeline()
     cam = cv2.VideoCapture(PORT)
-    while 1:
+    while True:
         img = cam.read()[1]
         pipeline.process(img)
         contours = pipeline.find_contours_output
@@ -38,4 +39,5 @@ def loop():
 
 if __name__ == '__main__':
     SpeedController.start_refreshing(location='/dev/ttyACM0', sending_rate=1)
-    loop()
+    t = Thread(target=loop)
+    t.start()
