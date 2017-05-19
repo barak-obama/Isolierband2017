@@ -25,11 +25,13 @@ center_img = img.copy()
 contours = g.find_contours_output
 cv2.imwrite('image.png', img)
 cv2.drawContours(contours_img, contours, -1, (0, 255, 0), 3)
-print type(contours)
 
-# for contour in contours:
-#     contour_img = img.copy()
-#     cv2.drawContours(contours_img, contours, -1, (0, 255, 0), 3)
+i = 0
+for contour in contours:
+    contour_img = img.copy()
+    cv2.drawContours(contour_img, [contour], -1, (0, 255, 0), 3)
+    cv2.imwrite('image_contour' + i + '.png', contour_img)
+    i += 1
 
 cv2.imwrite('image_contours.png', contours_img)
 center, contour = find_position(contours)
