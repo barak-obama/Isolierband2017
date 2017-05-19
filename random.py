@@ -8,4 +8,5 @@ i = -1
 while i < 1:
     SpeedController.set_left(i)
     SpeedController.set_right(-i)
+    i += 0.01
     time.sleep(0.1)
