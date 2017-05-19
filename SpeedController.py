@@ -25,7 +25,6 @@ def send_in_background(sending_rate):
             packet = send_queue.pop(0)
             serial_connection.write(packet)
             serial_connection.flush()
-            print packet
         time.sleep(sending_rate)
 
 
