@@ -9,6 +9,7 @@ KP = 1.2
 
 
 def tank_drive(speed_left, speed_right):
+    print "%s,%s"%(speed_left,speed_right)
     SpeedController.set_left(speed_left)
     SpeedController.set_right(-speed_right)
 
