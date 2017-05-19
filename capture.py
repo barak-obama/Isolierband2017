@@ -37,9 +37,9 @@ center, contour = find_position(contours)
 print contour is not None
 # center = (int((center[0]) * WIDTH), int((center[1]) * HEIGHT))
 print center
-center = (center[0]/WIDTH - 0.5, center[1]/HEIGHT - 0.5)
-print center
 cv2.circle(center_img, center, 20, (0, 255, 0), thickness=1, lineType=8, shift=0)
 cv2.drawContours(center_img, [contour], -1, (0, 0, 255), 3)
 cv2.imwrite("image_center.png", center_img)
+center = (center[0]/WIDTH - 0.5, center[1]/HEIGHT - 0.5)
+print center
 
