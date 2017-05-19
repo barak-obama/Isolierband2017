@@ -21,7 +21,6 @@ def start_refreshing(location, sending_rate=1):
 def __send__(packet):
     serial_connection.write(packet)
     serial_connection.flush()
-    print packet
 
 
 def speed_to_signal(speed):
