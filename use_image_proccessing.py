@@ -31,8 +31,8 @@ def loop():
         img = cam.read()[1]
         pipeline.process(img)
         contours = pipeline.find_contours_output
-        center = find_position(contours)[0]
-        speed_by_center(center)
+        center, _ = find_position(contours)[0]
+        speed_by_center(center[0])
         sleep(0.1)
 
 
