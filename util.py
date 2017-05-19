@@ -8,11 +8,10 @@ HEIGHT=480
 
 def is_down(contour):
     global threshold
-    print type(contour)
     for value in contour:
         real_value = value[0]
         print real_value
-        if real_value[1] < threshold:
+        if real_value[0] < threshold:
             return True
     return False
 
