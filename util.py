@@ -11,7 +11,7 @@ def is_down(contour):
     for value in contour:
         real_value = value[0]
         print real_value
-        if real_value[0] < threshold:
+        if real_value[1] < threshold:
             return True
     return False
 
